@@ -41,10 +41,15 @@
       $(".alert").fadeIn(500).css("opacity", "0.85").delay(6000).slideUp(1000);
       $(".alerts").on('click', '.alert', function(){$(this).remove()})
     </script>
-
+      
     <!-- alerts -->
   </div>
-
+<% if user_signed_in? %>
+<%=current_user.email%>
+<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+<%else%>
+<%= link_to "Login", new_user_session_path %>
+<% end %>
 </body>
 
 </html>
