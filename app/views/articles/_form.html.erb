@@ -25,10 +25,9 @@
         <label for="listingCategory">Category</label>
         <div class="contactSelect">
           <select name="guiest_id9" id="guiest_id9" class="select-drop">
-            <option value="0">All Category</option>
-            <option value="1">Restaurant</option>
-            <option value="2">Bar</option>
-            <option value="3">Cafe</option>
+              <% @categories.each do |category| %>
+                <option value="<%= category.id %>"> <%= category.name %> </option>
+              <% end %>
           </select>
         </div>
       </div>
