@@ -24,11 +24,13 @@
       <div class="form-group col-sm-6 col-xs-12">
         <label for="listingCategory">Category</label>
         <div class="contactSelect">
-          <select name="guiest_id9" id="guiest_id9" class="select-drop">
+          <%= form.collection_select(:category_id, Category.all, :id, :name, {prompt: "Choose a category"}, {class: "select-drop"})%>
+          <!-- <select name="guiest_id9" id="guiest_id9" class="select-drop">
               <% @categories.each do |category| %>
+                
                 <option value="<%= category.id %>"> <%= category.name %> </option>
               <% end %>
-          </select>
+          </select> -->
         </div>
       </div>
       <div class="form-group col-xs-12">
