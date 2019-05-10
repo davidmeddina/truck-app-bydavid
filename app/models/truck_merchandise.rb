@@ -1,0 +1,2 @@
+class TruckMerchandise < ApplicationRecord
+end
