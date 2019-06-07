@@ -1,0 +1,92 @@
+<%= form_with(model: truck, local: true, class: "listing__form") do |form| %>
+
+<% if truck.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(truck.errors.count, "error") %> prohibited this trucj from being saved:</h2>
+
+  <ul>
+    <% truck.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="dashboardBoxBg mb30">
+  <div class="profileIntro paraMargin">
+    <h3>New Truck</h3>
+    <p>Here you can create your truck.</p>
+    <div class="row">
+      
+      <div class="form-group col-sm-6 col-xs-12">
+        <div class="contactSelect">
+          <%= form.collection_select(:truck_type_id, TruckType.all, :id, :name, {prompt: "Choose a truck type"}, {class: "select-drop"})%>
+        </div>
+      </div>
+
+      <div class="form-group col-sm-6 col-xs-12">
+        <div class="contactSelect">
+          <%= form.collection_select(:truck_merchandise_id, TruckMerchandise.all, :id, :name, {prompt: "Choose Merchandise"}, {class: "select-drop"})%>
+        </div>
+      </div>
+
+      <div class="form-group col-sm-6 col-xs-12">
+        <div class="contactSelect">
+          <%= form.collection_select(:truck_load_id, TruckLoad.all, :id, :name, {prompt: "Choose load"}, {class: "select-drop"})%>
+        </div>
+      </div>
+
+      <div class="form-group col-sm-6 col-xs-12">
+        <div class="contactSelect">
+          <%= form.collection_select(:coverage_id, Coverage.all, :id, :name, {prompt: "Choose coverage"}, {class: "select-drop"})%>
+        </div>
+      </div>
+
+      <div class="form-group col-sm-6 col-xs-12">
+        <div class="contactSelect">
+          <%= form.collection_select(:city_id, Coverage.all, :id, :name, {prompt: "Choose city"}, {class: "select-drop"})%>
+        </div>
+      </div>
+
+      <div class="form-group col-sm-6 col-xs-12">
+        <div class="contactSelect">
+          <label for="">GPS </label>
+          <%= form.check_box :gps %>  
+        </div>
+      </div>
+
+      <div class="form-group col-sm-6 col-xs-12">
+        <div class="contactSelect">
+          <label for="">Available now </label>
+          <%= form.check_box :available_now %>
+        </div>
+      </div>
+
+      <div class="form-group col-sm-6 col-xs-12">
+        <div class="contactSelect">
+          <label for="">Latitude </label>
+          <%= form.text_field :latitude %>
+        </div>
+      </div>
+
+      <div class="form-group col-sm-6 col-xs-12">
+        <div class="contactSelect">
+          <label for="">Longitude </label>
+          <%= form.text_field :longitude %>
+        </div>
+      </div>
+
+      <div class="form-group col-sm-6 col-xs-12">
+        <div class="contactSelect">
+          <label for="">Price Per Km </label>
+          <%= form.text_field :price_per_km %>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<div class="form-footer text-center">
+  <%= form.button "Submit", value:"Submit Post", class:"btn-submit", data: { disable_with: "<i class='fa fa-spinner fa-spin'></i> Sending..." }%>
+</div>
+<% end %>

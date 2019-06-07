@@ -1,0 +1,7 @@
+<h1>Index Truck Page</h1>
+
+<% @trucks.each do |truck| %>
+<h1><%= truck.latitude %></h1>  
+<h4> <%= link_to  "Edit truck", edit_truck_path(truck) %> </h4>
+<% end %>
+

@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :validate_user
   before_action :find_user, only: [:show]
-
+  
   def show
     avatar_url = current_user.avatar_url
     @large_avatar = "#{avatar_url}&s=170"
